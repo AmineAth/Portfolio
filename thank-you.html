@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Thank you</title>
+			<!-- Latest Bootstrap min CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">	
+
+		<link rel="icon" href="assets/img/favicon.jpg"/>	
+	<style>
+		body{
+			background-color: #222;
+			scroll-behavior: smooth;
+		}
+		.container{
+			/* height: 1000px; */
+			/* background-color: red; */
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			padding-top: 15%;
+			padding-bottom: 15%;
+		}
+		.message{
+			padding: 60px;
+			/* background-color: green; */
+			border: 2px gray solid;
+			border-radius: 28px;
+			color : white;
+			box-shadow: 5px 10px 10px  black;
+		}
+		.message a {
+			text-decoration: none;
+			color: rgb(1, 174, 1);
+		}
+		.message img{
+			margin-bottom: 20px;
+		}
+
+		.message:hover{
+			/* border: 2px rgb(1, 174, 1) solid; */
+			box-shadow: 2px 5px 10px  rgba(245, 222, 179, 0.604);
+		}
+		
+		/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #3d3d3d;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:rgb(2, 62, 2);
+}
+	</style>
+</head>
+
+<body>
+	<section class="container">
+		<article class="message">
+			<center><img width="50px" src="assets/icons/email.png" /></center>
+			<h1> Your Mail Has Been Send Successfully !</h1>
+			<p>Thank you for your message, i'll try to answer as soon as possible</p>
+			<center><a href="index.html">Back Home</a></center>
+		</article>
+	</section>
+</body>
+</html>
