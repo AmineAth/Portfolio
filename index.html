@@ -1,528 +1,650 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amine Ait Ahmad - Web Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1E1E1E;
+            --text-color: #E0E0E0;
+            --primary-color: #4CAF50;
+            --secondary-color: #2196F3;
+            --accent-color: #FFC107;
+        }
 
-		<title>Amine Ait Ahmad</title>
-		<link href="https://fonts.googleapis.com/css?family=Poppins:300i,400,400i,500,600,700,800" rel="stylesheet">
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" >	
-		
-		<!--Favicon for this site -->
-		<link rel="icon" href="assets/img/favicon.jpg"/>		
-		
-		<!-- Fonts -->
-		<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome.min.css">
-		
-		<!-- Icon -->
-		<link rel="stylesheet" type="text/css" href="assets/fonts/simple-line-icons.css">
-		
-		<!-- Slicknav -->
-		<link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
-		
-		<!-- Owl-carousel -->
-		<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.min.css">
-		
-		<!-- Nivo Lightbox -->
-		<link rel="stylesheet" type="text/css" href="assets/css/nivo-lightbox.css" >
-		
-		<!-- Text-animated -->
-		<link rel="stylesheet" type="text/css" href="assets/css/animated-headline.css" >
-		
-		<!-- Normalize -->
-		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
-		
-		<!-- Animate -->
-		<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-		
-		<!-- Main Style -->
-		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
-		
-		<!-- Responsive Style -->
-		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">					
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-	</head>
-	<style>
-				/* width */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--card-bg);
+        }
+
+        nav {
+            display: flex;
+			background-color: transparent;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+		.mobile-menu-btn{
+			display: none;
+		}
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); */
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        .skills-grid, .services-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card, .service-card, .project-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover, .service-card:hover, .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-card i, .service-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--card-bg);
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: var(--text-color);
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        footer {
+            background-color: var(--card-bg);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--text-color);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--card-bg);
+                padding: 20px;
+            }
+
+            .nav-links.active li {
+                margin: 10px 0;
+            }
+        }
+
+        .skill-card, .service-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .skill-icon, .service-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            align-self: flex-start;
+        }
+
+		.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+/* Scrollbar styles */
 ::-webkit-scrollbar {
-  width: 10px;
-  
+    width: 12px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: #3d3d3d;
-
+    background: var(--bg-color);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 20px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    border: 3px solid var(--bg-color);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background:rgb(2, 62, 2);
+    background-color: var(--secondary-color);
 }
-	</style>
-  
-	<body data-spy="scroll" data-offset="80">
 
-		<!-- START PRELOADER -->
-			<div class="preloader">
-				<div class="loader">
-					<div class="loader-outter"></div>
-					<div class="loader-inner"></div>
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--bg-color);
+}
+.fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
 
-					<span>A</span>
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Amine Ath</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Hi There 👋,<br> I'm Amine Ait Ahmad</h1>
+                <p>I'm a Web Developer with extensive experience for over 3 years. My expertise is to create and build Full stack Websites, designs and many more...</p>
+                <!-- <a href="https://www.linkedin.com/in/amine-ait-ahmad-752513295/" class="cta-button">Check my LinkedIn!</a> -->
+                <a href="assets/Amine Ait Ahmad (1).pdf" target="_blank" class="cta-button">Check my CV</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/img/me4.png?height=400&width=400" alt="Amine Ait Ahmad">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>HTML5 & CSS3</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📜</div>
+                    <h3>JavaScript</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚛️</div>
+                    <h3>React.js</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🖥️</div>
+                    <h3>Node.js</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐘</div>
+                    <h3>PHP</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>MySQL & MongoDB</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Web Design</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Web Development</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Deployment</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>UML</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<section id="projects">
+		<div class="container">
+			<h2 class="section-title">My Projects</h2>
+			<div class="projects-grid">
+				<div class="project-card">
+					<div class="project-image" style="background-image: url('assets/img/p1.png?height=200&width=300');"></div>
+					<div class="project-info">
+						<h3 class="project-title">FlyYou Restaurant</h3>
+						<p class="project-description">Web design for a restaurant, focusing on front-end development.</p>
+						<a href="https://flyyou-design.vercel.app/" class="cta-button project-link">View Project</a>
+					</div>
 				</div>
-			</div>
-		<!-- END PRELOADER -->		
-		
-		<!-- START NAVBAR -->
-			<nav class="navbar navbar-toggleable-sm fixed-top navbar-light bg-faded site-navigation dark_bg_menu">
-				<div class="container">
-					<a class="navbar-brand" href="index2.html"><p>Amine Ath </p></a>          
-				    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-				    </button>
-				    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-						<ul class="navbar-nav">
-						  <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-						  <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li> -->
-						  <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>				
-						  <li class="nav-item"><a class="nav-link" href="#portfolio">Skills</a></li>				  			
-						  <li class="nav-item"><a class="nav-link" href="#blog">Projects</a></li>			
-						  <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-						</ul>
-				    </div>
-				</div>
-			</nav>      
-		<!-- END NAVBAR -->
-		
-		<!-- Hero Area Start -->
-			<section id="home" class="dark_bg">
-				<div id="particles-js"></div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-6">
-							<div class="banner_content">
-								<h3>Hi There 👋,</h3>
-								<h1 class="cd-headline clip">
-									<span class="fw_600">I Am</span>
-									<span class="cd-words-wrapper">
-										<b class="is-visible fw_600">Amine Ait Ahmad</b>
-										<!-- <b class="fw_600">Full-Stack Developer</b> -->
-										<b class="fw_600">Web Developer</b>
-									</span>
-								</h1>
-								<p>I'm a Web Developer with extensive experience for over 3 years. My expertise is to create and build Full stack Websites, designs and many more...</p>
-								<a href="https://www.linkedin.com/in/amine-ait-ahmad-752513295/" class="btn btn-secondary banner_btn">Check my linkedin !</a>								
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-6">
-							<div class="banner-images">
-								<img src="assets/img/me4.png" alt="" />
-							</div>
-						</div>
+				<div class="project-card">
+					<div class="project-image" style="background-image: url('assets/img/p2.png?height=200&width=300');"></div>
+					<div class="project-info">
+						<h3 class="project-title">Colors Memory Game</h3>
+						<p class="project-description">A memory game to test and improve cognitive skills.</p>
+						<a href="https://memory-game-colors.vercel.app/" class="cta-button project-link">Play Game</a>
 					</div>
 				</div>
-				
-			</section>
-		<!-- Hero Area End -->
-		
-	
-		<!-- Portfolio Section -->
-			<section id="portfolio" class="dark_bg section-padding">
-				<!-- Container Starts -->
-				<div class="container">        
-					<h2 class="section-title wow flipInX" data-wow-delay="0.4s">My <span>Skills</span></h2>
-					<div class="row">          
-						<div class="col-md-12">
-							<!-- Portfolio Controller/Buttons -->
-							<div class="controls text-center">
-							  <a class="filter active btn m-2 btn-common" >
-								HTML5, CSS3 
-							  </a>
-							  <a class="filter active btn btn-common" >
-								Tailwind
-							  </a>
-							  <a class="filter active btn btn-common" >
-								TypeScript 
-							  </a>
-							  <a class="filter btn btn-common" >
-								React.js, Javascript
-							  </a>
-							  <a class="filter btn btn-common" >
-								Nextjs
-							  </a>
-							  <a class="filter btn btn-common" >
-								PHP, Laravel
-							  </a> 
-							  <a class="filter active btn btn-common" >
-								MySQL
-							  </a>
-							  <a class="filter active btn btn-common" >
-								MongoDB
-							  </a>
-							  <a class="filter btn btn-common" >
-								Agile methods
-							  </a>
-							</div>
-							<!-- Portfolio Controller/Buttons Ends-->
-						</div>
-
-						
-		
-		<!-- Services Section Start -->
-		<section id="services" class="dark_bg services section-padding">
-			<h2 class="section-title wow flipInX" data-wow-delay="0.4s">My <span>Services</span></h2>
-			<div class="container">
-				<div class="row">
-					<!-- Services item -->
-					<div class="col-lg-4 col-md-6 col-xs-12">
-						<div class="services-item wow fadeInDown" data-wow-delay="0.3s">
-							<div class="icon">
-								<img src="assets/icons/webDesign.png" alt=""/>
-							</div>
-							<div class="services-content">
-								<h3><a href="#">Web Design</a></h3>
-								
-							</div>
-						</div>
+				<div class="project-card">
+					<div class="project-image" style="background-image: url('assets/img/p6.png?height=200&width=300');"></div>
+					<div class="project-info">
+						<h3 class="project-title">Certifs-IT System</h3>
+						<p class="project-description">Local billing system for managing student payments and data.</p>
+						<a href="https://drive.google.com/drive/folders/1kBPmN2T6ILp63mATINZi9HkkAvtutHp4" class="cta-button project-link">🔴View Recording </a>
 					</div>
-				  <!-- Services item -->
-					<div class="col-lg-4 col-md-6 col-xs-12">
-						<div class="services-item wow fadeInDown" data-wow-delay="0.6s">
-							<div class="icon">
-								<img src="assets/icons/webDev.png" alt=""/>
-							</div>
-							<div class="services-content">
-								<h3><a href="#">Web Development</a></h3>
-								
-							</div>
-						</div>
+				</div>
+				<div class="project-card">
+					<div class="project-image" style="background-image: url('assets/img/p4.png?height=200&width=300');"></div>
+					<div class="project-info">
+						<h3 class="project-title">Bernoussi Avenue</h3>
+						<p class="project-description">Web design for a real estate company specializing in apartment and house sales.</p>
+						<a href="https://bernoussi-avenue.vercel.app/" class="cta-button project-link">View Project</a>
 					</div>
-					<!-- Services item -->
-					<div class="col-lg-4 col-md-6 col-xs-12">
-						<div class="services-item wow fadeInDown" data-wow-delay="0.9s">
-							<div class="icon">
-								<img src="assets/icons/deployment.png"  alt=""/>
-							</div>
-							<div class="services-content">
-								<h3><a href="#">Deployment</a></h3>
-								
-							</div>
-						</div>
+				</div>
+				<div class="project-card">
+					<div class="project-image" style="background-image: url('assets/img/p5.png?height=200&width=300');"></div>
+					<div class="project-info">
+						<h3 class="project-title">Perfumes Shop</h3>
+						<p class="project-description">E-commerce platform for a luxury perfume store using Laravel and Tailwind CSS.</p>
+						<a href="https://drive.google.com/drive/folders/1kBPmN2T6ILp63mATINZi9HkkAvtutHp4" class="cta-button project-link">🔴View Recording </a>
 					</div>
-
-					<!-- Services item -->
-					<div class="col-lg-4 col-md-6 col-xs-12">
-						<div class="services-item wow fadeInUp" data-wow-delay="0.9s">
-							<div class="icon">
-								<img src="assets/icons/uml2.png"  alt=""/>
-							</div>
-							<div class="services-content">
-								<h3><a href="#">Unified Modeling Language (UML)</a></h3>
-								
-							</div>
-						</div>
-					</div>
-										<!-- Services item -->
-					<div class="col-lg-4 col-md-6 col-xs-12">
-						<div class="services-item wow fadeInLeft" data-wow-delay="0.9s">
-							<div class="icon">
-								<img src="assets/icons/front.png" alt=""/>
-							</div>
-							<div class="services-content">
-								<h3><a href="#">Front-End Development</a></h3>
-							
-							</div>
-						</div>
-					</div>
-					<!-- Services item -->
-					<div class="col-lg-4 col-md-6 col-xs-12">
-						<div class="services-item wow fadeInRight" data-wow-delay="0.9s">
-							<div class="icon">
-								<img src="assets/icons/backend.png" alt=""/>
-							</div>
-							<div class="services-content">
-								<h3><a href="#">Back-End Development</a></h3>
-								
-							</div>
-						</div>
+				</div>
+				<div class="project-card">
+					<div class="project-image" style="background-image: url('assets/img/p3.png?height=200&width=300');"></div>
+					<div class="project-info">
+						<h3 class="project-title">Currency Converter</h3>
+						<p class="project-description">A tool for converting between different currencies.</p>
+						<a href="https://amine-currency-converter.vercel.app/" class="cta-button project-link">View Project</a>
 					</div>
 				</div>
 			</div>
-		</section>
-	<!-- Services Section End -->
-		
-	
-		
-		
-		<!-- START BLOG -->
-			<div id="blog" class="dark_bg blog-area section-padding">
-				<h2 class="section-title wow flipInX" data-wow-delay="0.4s">Some of my <span>Projects</span></h2>
-				<div class="container">							
-					<div class="row">
-						<div class="col-lg-4 col-md-4 col-xs-12">
-							<div class="single_blog wow fadeInLeft">
-								<div class="blog-thumb">
-									<div class="blog-image">
-									   <a href="https://flyyou-design.vercel.app/"><img src="assets/img/p1.png" class="img-responsive" alt=""/></a>
-									</div>
-									<div class="blog-info">
-										<a href="https://flyyou-design.vercel.app/"><h4>
-											"Restaurant Model - FlyYou"</h4></a>
-										<small><i class="fa fa-clock-o"></i>October 31, 2022</small>
-										<span>| Design</span>											
-										<p> Web design for a restaurant, focusing on the front-end development of a modern website. <br>
-											The project includes creating a custom logo, designing product images, and crafting promotional posters. The website will feature an intuitive user interface, responsive layout, and visually engaging elements</p>
-										 
-										<a href="https://flyyou-design.vercel.app/" class="btn blog_btn btn-secondary">Try Demo</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-xs-12">
-							<div class="single_blog wow fadeInUp">
-								<div class="blog-thumb">
-									<div class="blog-image">
-									   <a href="https://memory-game-colors.vercel.app/"><img src="assets/img/p2.png" class="img-responsive" alt=""/></a>
-									</div>
-									<div class="blog-info">
-										<a href="https://memory-game-colors.vercel.app/"><h4>"Colors Memory Game"</h4></a>
-										<small><i class="fa fa-clock-o"></i>November 20, 2023</small>
-										<span>| Mini Game</span>											
-										<p> Memory Color Game is a game where you test your memory by trying to remember as many colors as possible at each level. <br>
-											As you progress, the sequences become more challenging, requiring you to recall and repeat increasingly complex patterns of colors. This game helps improve concentration and cognitive skills while providing fun and engaging gameplay.</p>
-										 
-										<a href="https://memory-game-colors.vercel.app/" class="btn blog_btn btn-secondary">Try Demo</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-xs-12">
-							<div class="single_blog wow fadeInRight">
-								<div class="blog-thumb">
-									<div class="blog-image">
-									   <a href="https://drive.google.com/drive/folders/1kBPmN2T6ILp63mATINZi9HkkAvtutHp4"><img src="assets/img/p6.png" class="img-responsive" alt=""/></a>
-									</div>
-									<div class="blog-info">
-										<a href="https://drive.google.com/drive/folders/1kBPmN2T6ILp63mATINZi9HkkAvtutHp4"><h4>"Certifs-IT System"</h4></a>
-										<small><i class="fa fa-clock-o"></i>April 18, 2024</small>
-										<span>| Management Dashboard</span>											
-										<p> Local billing system (Certifs-IT Center) that manages student payments at the center. <br>
-											Manipulate students, courses, and teachers data in a database. <br>
-											Manage exam schedules and results, as well as certified candidates. <br>
-											Dashboard for the administrator displaying statistics and analytical data that contribute to improving the quality of the center.</p>
-										 
-										<a href="https://drive.google.com/drive/folders/1kBPmN2T6ILp63mATINZi9HkkAvtutHp4" class="btn blog_btn btn-danger">Check a screen recording </a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div><!--- END CONTAINER -->	
+		</div>
+	</section>
 
-				<div class="container">							
-					<div class="row">
-						<div class="col-lg-4 col-md-4 col-xs-12">
-							<div class="single_blog wow fadeInLeft">
-								<div class="blog-thumb">
-									<div class="blog-image">
-									   <a href="https://bernoussi-avenue.vercel.app/"><img src="assets/img/p4.png" class="img-responsive" alt=""/></a>
-									</div>
-									<div class="blog-info">
-										<a href="https://bernoussi-avenue.vercel.app/"><h4>"Bernoussi Avenue"</h4></a>
-										<small><i class="fa fa-clock-o"></i>June 01, 2024</small>
-										<span>| Design</span>											
-										<p> Web design for "Bernoussi Avenue," a company specializing in the sale of apartments and houses. <br>
-											The project involved front-end development of a sleek and professional website that showcases the company's real estate listings. The design includes a custom logo, high-quality images of properties, and informative sections that provide details on each listing. The website is responsive, ensuring an optimal user experience across all devices</p>
-										 
-										<a href="https://bernoussi-avenue.vercel.app/" class="btn blog_btn btn-secondary">Try Demo</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-xs-12">
-							<div class="single_blog wow fadeInUp">
-								<div class="blog-thumb">
-									<div class="blog-image">
-									   <a href="https://drive.google.com/drive/folders/1kBPmN2T6ILp63mATINZi9HkkAvtutHp4"><img src="assets/img/p5.png" class="img-responsive" alt=""/></a>
-									</div>
-									<div class="blog-info">
-										<a href="https://drive.google.com/drive/folders/1kBPmN2T6ILp63mATINZi9HkkAvtutHp4"><h4>"Perfumes Shop"</h4></a>
-										<small><i class="fa fa-clock-o"></i>octobre 10, 2024</small>
-										<span>| Online Store</span>											
-										<p>User-friendly e-commerce platform for a luxury perfume store using Laravel. The store features a dynamic product catalog with high-quality images, detailed descriptions, and secure checkout functionality. Integrated a seamless admin interface for managing product inventory, including image uploads, pricing, and stock. Utilized Tailwind CSS for a visually appealing and responsive design, ensuring an immersive shopping experience across devices.</p>
-										<a href="https://drive.google.com/drive/folders/1kBPmN2T6ILp63mATINZi9HkkAvtutHp4" class="btn blog_btn btn-danger">Check a screen recording</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-xs-12">
-							<div class="single_blog wow fadeInRight">
-								<div class="blog-thumb">
-									<div class="blog-image">
-									   <a href="https://amine-currency-converter.vercel.app/"><img src="assets/img/p3.png" class="img-responsive" alt=""/></a>
-									</div>
-									<div class="blog-info">
-										<a href="https://amine-currency-converter.vercel.app/"><h4>"Currency Converter"</h4></a>
-										<small><i class="fa fa-clock-o"></i>February 08, 2024</small>
-										<span>| Tool</span>											
-										<p>Harness the power of compelling visuals to communicate narratives that resonate deeply with your audience.</p>
-										<a href="https://amine-currency-converter.vercel.app/" class="btn blog_btn btn-secondary">Try Demo</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div><!--- END CONTAINER -->	
-			</div>
-		<!-- END BLOG -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <a href="thank-you.html" class="cta-button">Send Message</a>
+            </form>
+        </div>
+    </section>
 
-           	<!-- Funfacts Section Start -->
-			<!-- <section class="dark_bg funfacts-area pb_80 ">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-md-3">
-							<div class="funfact">
-								<i class="icofont-printer"></i>
-								<h3><span class="counterUp">20</span>+</h3>
-								<p>Successfull Projects</p>
-							</div>
-						</div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Amine Ait Ahmad. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-						<div class="col-lg-3 col-md-3">
-							<div class="funfact">
-								<i class="icofont-users"></i>
-								<h3><span class="counterUp">90</span>%</h3>
-								<p>Clients satisfaction</p>
-							</div>
-						</div>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-						<div class="col-lg-3 col-md-3">
-							<div class="funfact">
-								<i class="icofont-users-alt-5"></i>
-								<h3><span class="counterUp">7</span>+</h3>
-								<p>Team Members</p>
-							</div>
-						</div>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
 
-						<div class="col-lg-3 col-md-3">
-							<div class="funfact">
-								<i class="icofont-award"></i>
-								<h3><span class="counterUp">100</span>+</h3>
-								<p>Winning Awards</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section> -->
-        <!-- Funfacts Section End -->
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-		<!-- Contact Section Start -->
-			<section id="contact" class="dark_bg section-padding">      
-				<div class="contact-form">
-					<div class="container">
-						<h2 class="section-title wow flipInX" data-wow-delay="0.4s">Contact <span>Me</span></h2>  
-						<style>
-							.center-div {
-							  margin: 0 auto; /* This will center the div horizontally */
-							  max-width: 100%; /* Ensures the div doesn't exceed the width of its container */
-							  /* Add any additional styling you need */
-							}
-						  </style>
-						<div class="row contact-form-area">   												
-							<div class="col-md-12 col-lg-8 col-sm-8 center-div">
-								<div class="contact_form wow fadeInLeft">
-									<form action="thank-you.html" method="get" id="main_contact_form">
-										<div class="contact_input_area">
-											<div id="success_fail_info"></div>
-											<div class="row">
-												<!-- Form Group -->
-												<div class="col-12">
-													<div class="form-group">
-														<input type="text" name="name" class="form-control" placeholder="Name" required="required">
-													</div>
-												</div>
-												<!-- Form Group -->
-												<div class="col-12 col-lg-6">
-													<div class="form-group">
-														<input type="email" name="email" class="form-control" placeholder="Email" required="required">
-													</div>
-												</div>
-												<!-- Form Group -->
-												<div class="col-12 col-lg-6">
-													<div class="form-group">
-														<input type="text" name="subject" class="form-control" placeholder="Subject" required="required">
-													</div>
-												</div>
-												<!-- Form Group -->
-												<div class="col-12">
-													<div class="form-group">
-														<textarea rows="6" name="message" class="form-control" placeholder="Your Message" required="required"></textarea>
-													</div>
-												</div>
-												<!-- Button -->
-												<div class="col-12 text-center">
-													<button type="submit" value="Send message" name="submit" id="submitButton" class="btn btn-secondary ct_btn" title="Submit Your Message!">Send Message</button>
-												</div>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
-							
-						</div> 
-					</div>
-				</div>   
-			</section>
-		<!-- Contact Section End -->
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
-		<!-- Footer Section Start -->
-			<footer class="footer-area">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="footer-text text-center wow fadeInDown" data-wow-delay="0.3s">
-								<p>Copyright © 2024 Amine | All Rights Reserved</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</footer>
-		<!-- Footer Section End -->
+        // Form submission (you'll need to implement the actual form submission logic)
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
 
-		<!-- Go to Top Link -->
-		<a href="#" class="back-to-top">
-			<i class="fa fa-arrow-up"></i>
-		</a>
+        // Animate skill progress bars
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
 
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="assets/js/jquery-min.js"></script>
-		<script src="assets/js/popper.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script src="assets/js/modernizr-2.8.3.min.js"></script>
-		<script src="assets/js/particles.min.js"></script>
-		<script src="assets/js/app.js"></script>
-		<script src="assets/js/jquery.nav.js"></script>
-		<script src="assets/js/smooth-scroll.js"></script>
-		<script src="assets/js/owl.carousel.min.js"></script>
-		<script src="assets/js/jquery.mixitup.js"></script>
-		<script src="assets/js/animated-headline.js"></script>
-		<script src="assets/js/jquery.counterup.min.js"></script>
-		<script src="assets/js/waypoints.min.js"></script>
-		<script src="assets/js/wow.js"></script>
-		<script src="assets/js/jquery.easing.min.js"></script>  
-		<script src="assets/js/nivo-lightbox.js"></script>
-		<script src="assets/js/form-contact.js"></script>
-		<script src="assets/js/main.js"></script>
-		
-	</body>
+        // Intersection Observer for skill cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const skillsSection = document.querySelector('#skills');
+        observer.observe(skillsSection);
+
+
+		function setupScrollAnimations() {
+        const animatedElements = document.querySelectorAll('.service-card, .project-card, .contact-form');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animatedElements.forEach(element => {
+            element.classList.add('fade-in');
+            observer.observe(element);
+        });
+    }
+
+    // Call this function after the DOM has loaded
+    document.addEventListener('DOMContentLoaded', setupScrollAnimations);
+    </script>
+</body>
 </html>
