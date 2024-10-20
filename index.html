@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amine Ait Ahmad - Web Developer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #121212;
@@ -340,6 +341,28 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
 /* Scrollbar styles */
 ::-webkit-scrollbar {
     width: 12px;
@@ -556,11 +579,19 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Amine Ait Ahmad. All Rights Reserved.</p>
-        </div>
-    </footer>
+	<footer>
+		<div class="container">
+			<p>&copy; 2024 Amine Ait Ahmad. All Rights Reserved.</p>
+			<div class="social-icons">
+				<a href="https://www.linkedin.com/in/amine-ait-ahmad-752513295/" target="_blank" rel="noopener noreferrer">
+					<i class="fab fa-linkedin"></i>
+				</a>
+				<a href="https://github.com/AmineAth" target="_blank" rel="noopener noreferrer">
+					<i class="fab fa-github"></i>
+				</a>
+			</div>
+		</div>
+	</footer>
 
     <script>
         // Smooth scrolling for navigation links
